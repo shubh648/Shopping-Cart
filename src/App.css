@@ -1,0 +1,14 @@
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+    .Apps{
+        max-width: 100% !important;
+        box-shadow: 0 -2px 9px 2px lightgray !important;
+        margin:0 !important;
+    }
+}
+
+.Apps{
+    max-width: 350px;
+    box-shadow: 0 -2px 9px 2px lightgray;
+    margin:auto;
+}

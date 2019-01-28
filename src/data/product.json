@@ -1,0 +1,39 @@
+{
+	"products" : [
+		{
+			"productId": 1,
+			"productName" : "Apple",
+			"category":"fruits",
+			"img": "apple.png",
+			"price" : 120,
+			"measureIn" : "kg",
+			"variation" : 1
+		},
+		{
+			"productId": 2,
+			"productName" : "Banana",
+			"category":"fruits",
+			"img": "banana.png",
+			"price" : 30,
+			"measureIn" : "kg",
+			"variation" : 1
+		},
+		{
+			"productId": 3,
+			"productName" : "Watermelon",
+			"category":"fruits",
+			"img": "watermelon.png",
+			"price" : 20,
+			"measureIn" : "pcs",
+			"variation" : 1
+		},
+		{
+			"productId": 4,
+			"productName" : "Strawberry",
+			"category":"fruits",
+			"img": "strawberry.png",
+			"price" : 300,
+			"measureIn" : "kg",
+			"variation" : 1
+		}
+]}

@@ -1,0 +1,114 @@
+.card_list_header h3{
+	margin: 0;
+	top: 70%;
+	left: 55%;
+	transform: translate(-50%,-50%);
+	position: relative;
+}
+
+.one_card{
+	display: flex;
+	position: relative;
+	margin: 15px 5px;
+}
+.one_card_date{
+	margin-left: 5px;
+	width: 15%;
+}
+.rc-swipeout-content{
+	padding: 0px;
+}
+.one_card_body{
+	/* background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%); */
+	background: linear-gradient( rgb(6, 22, 56),rgba(0, 0, 0, 0.3)),
+	url("https://mdn.mozillademos.org/files/15525/critters.png");
+  	background-size: 100% 100%;
+	color: #fff;
+	padding-top: 0.2px;
+    padding-bottom: 0.2px;
+}
+
+.body-container{
+	margin: 5px 5px 10px 15px;;
+}
+
+.rc-swipeout{
+	width: 80%;
+	overflow: visible !important;
+	box-shadow: 1px 1px 10px 2px;
+	border-radius: 5px;
+}
+.card_list_bottom{
+	position: fixed;
+	bottom: 0;
+	align-items: center;
+	height: fit-content;
+	width: fit-content;
+	left: 50%;
+    transform: translate(-50%);
+}
+.plus_button{
+	background-color: red;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%)
+}
+.plus_button::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  height: 6px;
+  margin-top: -3px;
+  top: 50%;
+  left: 5px;
+  right: 5px;
+  z-index: 9;
+}
+.plus_button::before {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  width: 5px;
+  margin-left: -3px;
+  left: 50%;
+  top: 5px;
+  bottom: 5px;
+  z-index: 9;
+}
+
+.user-friends{
+	margin-right: 5px;
+}
+
+.list-back-button{
+	margin-left: 8px;
+	margin-top: 15px;
+	height: fit-content;
+}
+.list-back{
+	width: 20px !important;
+	height: 20px !important;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+	.card-header{
+		width: 100% !important;
+	}
+}
+.card-header{
+	display: flex;
+	height: 100px;
+	position: fixed;
+    z-index: 3;
+    width: 350px;
+    background-color: #fff;
+}
+
+.card_list_body{
+	padding-top: 95px;
+}

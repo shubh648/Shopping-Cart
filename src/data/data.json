@@ -1,0 +1,84 @@
+{
+	"data" : [
+		{
+			"id" : 1,
+			"listName" : "Weekend List",
+			"totalItems" : 1,
+			"category":"Fruits",
+			"items": [
+				{"itemId": 1,
+					"quantity" : 2 ,
+					"unit":"kg"
+				}
+			],
+			"collaborators" : [ {"id":1,"name":"Saurabh Goel"}, {"id":2,"name":"Shah Rukh"}],
+			"date" : "Fri Jan 25 2019 01:17:07 GMT+0530 (IST)"
+		},
+		{
+			"id" : 2,
+			"listName" : "Birthday Party",
+			"totalItems" : 3,
+			"category":"Fruits",
+			"items": [
+					{"itemId": 1,
+						"quantity" : 2 ,
+						"unit":"kg"
+					},
+					{"itemId": 4,
+						"quantity" : 500 ,
+						"unit":"gms"
+					},
+					{"itemId": 3,
+						"quantity" : 1 ,
+						"unit":"pcs"
+					}
+				],
+			"collaborators" : [ {"id":1,"name":"Brain Lara"}],
+			"date" : "Fri Jan 20 2019 04:17:07 GMT+0530 (IST)"
+		},
+		{
+			"id" : 3,
+			"listName" : "Monthly Grocery",
+			"totalItems" : 2,
+			"category":"Fruits",
+			"items": [
+				{"itemId": 2,
+					"quantity" : 2 ,
+					"unit":"kg"
+				},
+				{"itemId": 3,
+					"quantity" : 5,
+					"unit":"pcs"
+				}
+			],
+			"collaborators" : [ {"id":1,"name":"Naren Modi"}, {"id":2,"name":"Rahul"}],
+			"date" : "Fri Jan 23 2019 01:30:07 GMT+0530 (IST)"
+		},
+		{
+			"id" : 4,
+			"listName" : "Mother's Choice",
+			"totalItems" : 4,
+			"category":"Fruits",
+			"items": [
+				{"itemId": 1,
+					"quantity" : 2 ,
+					"unit":"kg"
+				},
+				{"itemId": 2,
+					"quantity" : 5 ,
+					"unit":"kg"
+				},
+				{"itemId": 3,
+					"quantity" : 1,
+					"unit":"pcs"
+				},
+				{"itemId": 4,
+					"quantity" : 1 ,
+					"unit":"kg"
+				}
+			],
+			"collaborators" : [ {"id":1,"name":"Rahul"}],
+			"date" : "Fri Jan 3 2019 19:19:19 GMT+0530 (IST)"
+		}
+	]
+}

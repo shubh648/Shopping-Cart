@@ -9,7 +9,7 @@
 ## Instructions for running project
 ```
 git clone https://github.com/shubh648/Shopping-Cart.git
-cd Shoping-Cart
+cd Shopping-Cart
 npm i
 npm start
 ```

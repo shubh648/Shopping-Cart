@@ -18,6 +18,14 @@ class ShoppingList extends Component {
 		console.log("ADD");
 		
 	}
+
+	getCard = ()=>{
+		return this.props.data.map((item)=>{
+			return(
+				<OneCard key={item.id} item={item} />
+			)
+		})
+	}
 	
 	render() {
 		return (
@@ -32,11 +40,7 @@ class ShoppingList extends Component {
 				</div>
 
 				<div className="card_list_body">
-					{this.props.data.map((item)=>{
-						return(
-							<OneCard key={item.id} item={item} />
-						)
-					})}
+					<this.getCard />
 				</div>
 
 				<div className="card_list_bottom" onClick={this.handleAdd}>

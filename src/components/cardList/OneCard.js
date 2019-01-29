@@ -15,6 +15,14 @@ class OneCard extends Component {
     e.preventDefault();
     return this.props.history.push({pathname: '/product-list', id: this.props.item.id})
   }
+
+  getCollab = ()=>{
+	return this.props.item.collaborators.map(collab=>{
+		return(
+			(collab.id>1)?(", "+collab.name):(collab.name)
+		)
+	})
+  }
 	render() {
 		return (
 			<div className="one_card">
@@ -51,11 +59,7 @@ class OneCard extends Component {
 							</div>
 							<div className="one_card_body_collaborators">
 							<FontAwesomeIcon className="user-friends"  icon={faUserFriends} />
-								{this.props.item.collaborators.map(collab=>{
-									return(
-										(collab.id>1)?(", "+collab.name):(collab.name)
-									)
-								})}
+								<this.getCollab />
 							</div>
 						</div>
 					</div>

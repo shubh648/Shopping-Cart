@@ -45,86 +45,116 @@ class ShoppingList extends Component {
 	handleCheckout =()=>{
 		console.log("Checkout");	
 	}
+
+	getHeader =()=>{
+		return(
+			<div className="shopping_list_header">
+				<div className="back-button" onClick={this.handleback}>
+					<FontAwesomeIcon className="back" icon={faChevronLeft} />							
+				</div>
+				<h1>{this.props.id && this.getItem().listName}</h1>
+				<div className="space"></div>
+				<div className="edit-button" onClick={this.handleEdit}>
+					<FontAwesomeIcon className="edit" icon={faPen} />							
+				</div>
+			</div>
+		)
+	}
+
+	getCollabs =()=>{
+		return(
+			<div className="collabs-container">
+				{this.props.id && this.getItem().collaborators.map(collab=>
+					<div className="collabs" key={collab.id}>
+						<div className="collabs-detail">
+							{collab.name}
+							<div className="collab-close" onClick={this.handleCollabClose}>X</div>
+						</div>
+					</div>						
+				)}
+				<div className="space"></div>
+				<div className="add-collab" onClick={this.handleAddCollab}>
+					<FontAwesomeIcon className="user-plus" icon={faUserPlus} />							
+				</div>	
+			</div>
+		)
+	}
+
+	getCatagory =()=>{
+		return(
+			<div className="category-container">
+				<div className="category">
+					<h4>
+						{this.props.id && this.getItem().category+" "}
+						({
+							(this.props.id && this.getItem().totalItems<10)?
+							("0"+(this.props.id && this.getItem().totalItems)):
+							(this.props.id && this.getItem().totalItems)
+						} items)
+					</h4>
+				</div>
+				<div className="space"></div>
+				<div className="empty" onClick={this.handleEmpty}>
+					<FontAwesomeIcon className="trash" icon={faTrashAlt} />							
+					<h5>Empty</h5>
+				</div>
+			</div>
+		)
+	}
+
+	getCheckout =()=>{
+		return(
+			<div className="shopping_list_checkout">
+				<div className="shopping_list_checkout_sum col-xs-6">
+					<p>Total Items : {
+								(this.props.id && this.getItem().totalItems<10)?
+								("0"+(this.props.id && this.getItem().totalItems)):
+								(this.props.id && this.getItem().totalItems)
+							} </p>
+					<h2>&#x20B9; {this.total}</h2>
+					<p className="GST">Estimated cost including GST</p>
+				</div>
+				<div className="shopping_list_checkout_btn col-xs-6">
+					<div className="checkout_btn" onClick={this.handleCheckout}>
+						<h4>Checkout</h4>
+					</div>
+				</div>
+			</div>
+		)
+	}
+
+	getCard =()=>{
+		return(
+			this.props.id && this.getItem().items.map((products)=>{
+
+				const pro_duc = this.props.productItem.find((item)=>{
+
+					if(item.productId === products.itemId){
+						(products.unit === "gms")?
+						(this.total +=(item.price/1000*products.quantity)):
+						(this.total +=item.price*products.quantity)
+						return true;
+					}
+					return false;
+				})
+				return(
+					<ProductCard  products={products} pro_duc={pro_duc} key={products.itemId} />
+				)
+			})
+		)
+	}
 	
 	render() {
 		return (
 			<div className="shopping_list">
-				<div className="shopping_list_header">
-					<div className="back-button" onClick={this.handleback}>
-						<FontAwesomeIcon className="back" icon={faChevronLeft} />							
-					</div>
-					<h1>{this.props.id && this.getItem().listName}</h1>
-					<div className="space"></div>
-					<div className="edit-button" onClick={this.handleEdit}>
-						<FontAwesomeIcon className="edit" icon={faPen} />							
-					</div>
-				</div>
+				<this.getHeader />
 				
 				<div className="card-container">
-					<div className="collabs-container">
-						{this.props.id && this.getItem().collaborators.map(collab=>
-							<div className="collabs" key={collab.id}>
-								<div className="collabs-detail">
-									{collab.name}
-									<div className="collab-close" onClick={this.handleCollabClose}>X</div>
-								</div>
-							</div>						
-						)}
-						<div className="space"></div>
-						<div className="add-collab" onClick={this.handleAddCollab}>
-							<FontAwesomeIcon className="user-plus" icon={faUserPlus} />							
-						</div>	
-					</div>
-					<div className="category-container">
-						<div className="category">
-							<h4>
-								{this.props.id && this.getItem().category+" "}
-								({
-									(this.props.id && this.getItem().totalItems<10)?
-									("0"+(this.props.id && this.getItem().totalItems)):
-									(this.props.id && this.getItem().totalItems)
-								} items)
-							</h4>
-						</div>
-						<div className="space"></div>
-						<div className="empty" onClick={this.handleEmpty}>
-							<FontAwesomeIcon className="trash" icon={faTrashAlt} />							
-							<h5>Empty</h5>
-						</div>
-					</div>
-					{this.props.id && this.getItem().items.map((products)=>{
-
-						const pro_duc = this.props.productItem.find((item)=>{
-
-							if(item.productId === products.itemId){
-								(products.unit === "gms")?
-								(this.total +=(item.price/1000*products.quantity)):
-								(this.total +=item.price*products.quantity)
-								return true;
-							}
-							return false;
-						})
-						return(
-							<ProductCard  products={products} pro_duc={pro_duc} key={products.itemId} />
-						)
-					})}
+					<this.getCollabs />
+					<this.getCatagory />
+					<this.getCard />
 				</div>
-				<div className="shopping_list_checkout">
-					<div className="shopping_list_checkout_sum col-xs-6">
-						<p>Total Items : {
-									(this.props.id && this.getItem().totalItems<10)?
-									("0"+(this.props.id && this.getItem().totalItems)):
-									(this.props.id && this.getItem().totalItems)
-								} </p>
-						<h2>&#x20B9; {this.total}</h2>
-						<p className="GST">Estimated cost including GST</p>
-					</div>
-					<div className="shopping_list_checkout_btn col-xs-6">
-						<div className="checkout_btn" onClick={this.handleCheckout}>
-							<h4>Checkout</h4>
-						</div>
-					</div>
-				</div>
+				<this.getCheckout />
 			</div>
 		)
 	}
